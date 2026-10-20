@@ -31,9 +31,9 @@ function loseheadline(){
 }   
  
 function altdetails(){
-  if(msg=='goswickgrass'){    
+  if(msg=='abouts'){    
         gee=answers[0][1];
-}else if(msg=='abouts'){    
+}else if(msg=='goswickgrass'){    
         gee=answers[1][1];
 }else if(msg=='horncliffesteading'){    
         gee=answers[2][1];
