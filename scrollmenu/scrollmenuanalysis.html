@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menus</title>
+    <style>
+        body{display:flex; flex-direction: column;width:98vw; }
+        .hangnav{display: flex;flex-direction: row;margin: auto;flex-wrap: wrap;}
+        .hangnavinner{display: flex;flex-direction: row;margin: auto;flex-wrap: wrap;}
+        button{display:flex;}
+        #leftb{display: flex;width:30px;height:20px;
+            border: brown 1px solid;}
+        #rightb{display: flex;width:30px;height:20px;
+    border: brown 1px solid;}
+        #leftb img{width:100%; height:100%;}
+        #rightb img{width:100%; height:100%;}
+    </style>
+</head>
+<body>
+<header>Various intros</header>
+<nav class="hangnav">   
+        <div id="leftb">
+            <button  class="innerb"><img src="img/leftb.JPG"/>
+            </button> 
+        </div>
+        <div class="hangnavinner"> 
+        <button>10-10-26</button> 
+        <button>11-10-26</button>
+        <button>12-10-26</button>
+        <button>13-10-26</button> 
+        <button>14-10-26</button>
+        <button>15-10-26</button>
+        <button>16-10-26</button> 
+        <button>17-10-26</button>
+        <button>18-10-26</button>
+        <button>19-10-26</button> 
+        <button>20-10-26</button>
+        <!--<button>21-10-26</button>-->
+        </div> 
+        <div id="rightb">
+            <button  class="innerb"><img src="img/rightb.JPG"/>
+            </button>
+        </div>  
+</nav>
+<p></p>    
+</body>
+<script>
+    let bb=document.querySelectorAll('.hangnavinner button')
+    let bbl=bb.length;
+    let sl=document.querySelector('#leftb button')
+    let sr=document.querySelector('#rightb button')
+    sl.addEventListener('click', scrolll) 
+    sr.addEventListener('click', scrollr)
+    let scrollpo=3
+    for(let x= scrollpo; x <bb.length; x++){           
+                bb[x].style="display:none;"           
+    }
+    //just in case I affect this global variable I use a copy of it
+    let scrollpos=scrollpo;
+    function scrollclosexact(){ 
+        if(scrollpos>3){      
+        for(let x=scrollpos-3; x<scrollpos; x++){
+            bb[x].style="display:none;"
+        }       
+        for(let x=scrollpos-6;x<scrollpos-3;x++){
+            bb[x].style="display:flex";
+        }  
+        scrollpos-=3    
+        document.querySelector('p').innerHTML=scrollpos;    
+        }}
+        function scrolll(){   
+            if(scrollpos<=3){
+            return
+        }else{         
+            if(bbl%3!==0){
+                if (scrollpos>bbl-2 ){  
+                scrolllclosemiss()
+                }else{
+                scrolllclosexact()
+                }}
+            }
+        }
+    function scrolllclosemiss(){        
+        for(let x=bbl-1; x>bbl-2-(scrollpos-bbl); x--){
+            bb[x].style="display:none;"
+        }       
+        for(let x=scrollpos-6;x<scrollpos-3;x++){
+            bb[x].style="display:flex";
+        }  
+        scrollpos-=3    
+        document.querySelector('p').innerHTML=scrollpos;    
+    }    
+    function scrolllclosexact(){        
+        for(let x=scrollpos-3; x<scrollpos; x++){
+            bb[x].style="display:none;"
+        }       
+        for(let x=scrollpos-6;x<scrollpos-3;x++){
+            bb[x].style="display:flex";
+        }  
+        scrollpos-=3    
+        document.querySelector('p').innerHTML=scrollpos;    
+    }   
+   function goingupwrong(){    
+        for(let x= scrollpos -3; x<scrollpos; x++){
+            bb[x].style="display:none;"
+        }
+        for(let x=scrollpos; x<bbl; x++){
+            bb[x].style="display:flex;"
+        }notes()
+       
+   }
+   function notes(){
+     scrollpos+=3;        
+        document.querySelector('p').innerHTML=scrollpos
+   }
+    function scrollr(){   
+        if (scrollpos>=bbl-2 ){            
+        if( bbl%3!==0){
+            goingupwrong()
+        } }
+        else{
+        scrollrcorrect()
+        }
+       
+    }
+    function scrollrcorrect(){
+         if(scrollpos>=bbl){
+            return
+        } else{         
+        for(let x= scrollpos -3; x<scrollpos; x++){
+            bb[x].style="display:none;"
+        }
+        for(let x=scrollpos; x<scrollpos+3; x++){
+            bb[x].style="display:flex;"
+        }
+        
+        scrollpos+=3;        
+        document.querySelector('p').innerHTML=scrollpos;
+        }
+    }
+  
+</script>
+</html>
