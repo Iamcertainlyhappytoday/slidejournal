@@ -52,8 +52,7 @@
         for the new tab but this is not a real page to use in the longer term.</div>
 </body>
 <script>
-    let bb=document.querySelectorAll('.hangnavinner button')
-    let pinterest=document.querySelector('#counter")
+    let bb=document.querySelectorAll('.hangnavinner button')   
     let bbl=bb.length;
     let sl=document.querySelector('#leftb button')
     let sr=document.querySelector('#rightb button')
@@ -66,6 +65,7 @@
     //just in case I affect this global variable I use a copy of it
     let scrollpos=scrollpo;
     function scrollclosexact(){ 
+         let pinter=document.querySelector('#counter")
         if(scrollpos>3){      
         for(let x=scrollpos-3; x<scrollpos; x++){
             bb[x].style="display:none;"
@@ -74,7 +74,7 @@
             bb[x].style="display:flex";
         }  
         scrollpos-=3    
-       pinterest.innerHTML=scrollpos;    
+       pinter.innerHTML=scrollpos;    
         }}
         function scrolll(){   
             if(scrollpos<=3){
@@ -88,7 +88,8 @@
                 }}
             }
         }
-    function scrolllclosemiss(){        
+    function scrolllclosemiss(){      
+         let pinter=document.querySelector('#counter")
         for(let x=bbl-1; x>bbl-2-(scrollpos-bbl); x--){
             bb[x].style="display:none;"
         }       
@@ -96,9 +97,10 @@
             bb[x].style="display:flex";
         }  
         scrollpos-=3    
-       pinterest.innerHTML=scrollpos;    
+       pinter.innerHTML=scrollpos;    
     }    
-    function scrolllclosexact(){        
+    function scrolllclosexact(){       
+         let pinter=document.querySelector('#counter")
         for(let x=scrollpos-3; x<scrollpos; x++){
             bb[x].style="display:none;"
         }       
@@ -106,7 +108,7 @@
             bb[x].style="display:flex";
         }  
         scrollpos-=3    
-       pinterest.innerHTML=scrollpos;    
+       pinter.innerHTML=scrollpos;    
     }   
    function goingupwrong(){    
         for(let x= scrollpos -3; x<scrollpos; x++){
@@ -132,6 +134,7 @@
        
     }
     function scrollrcorrect(){
+         let pinter=document.querySelector('#counter")
          if(scrollpos>=bbl){
             return
         } else{         
@@ -143,7 +146,7 @@
         }
         
         scrollpos+=3;        
-       pinterest.innerHTML=scrollpos;
+       pinter.innerHTML=scrollpos;
         }
     }
   
