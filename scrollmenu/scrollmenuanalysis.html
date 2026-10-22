@@ -6,26 +6,23 @@
     <title>menus</title>
     <style>
         body{display:flex; flex-direction: column;width:98vw; }
-        .hangnav{display: flex;flex-direction: row;margin: auto;flex-wrap: wrap;}
+        .hangnav{display: flex;flex-direction: row;margin:5px auto;flex-wrap: wrap;}
         .hangnavinner{display: flex;flex-direction: row;margin: auto;flex-wrap: wrap;}
         button{display:flex;}
         #leftb{display: flex;width:30px;height:20px;
             border: brown 1px solid;}
         #rightb{display: flex;width:30px;height:20px;
-    border: brown 1px solid;}
+            border: brown 1px solid;}
         #leftb img{width:100%; height:100%;}
         #rightb img{width:100%; height:100%;}
-        #noter{display:flex;margin-bottom:0;
-        header p span{background-color:orange; margin:3px;}
+        header span{background-color: orange;margin:3px;}
     </style>
 </head>
 <body>
-<header>
-    <p>Various intros to pages labelled by date for example. <span>Scroll Menu</span></p>
-</header>
+<header>Various intros to pages labelled by date for example. <span>Scroll Menu</span></header>
 <nav class="hangnav">   
         <div id="leftb">
-            <button  class="innerb"><img src="../img/leftb.JPG" alt="button"/>
+            <button  class="innerb"><img src="../img/leftb.JPG"/>
             </button> 
         </div>
         <div class="hangnavinner"> 
@@ -40,19 +37,18 @@
         <button>18-10-26</button>
         <button>19-10-26</button> 
         <button>20-10-26</button>
+        <!--Making a non divisible by 3 set intentionally to test this-->
         <!--<button>21-10-26</button>-->
         </div> 
         <div id="rightb">
-            <button  class="innerb"><img src="../img/rightb.JPG" alt="button"/>
+            <button  class="innerb"><img src="../img/rightb.JPG"/>
             </button>
         </div>  
 </nav>
-<p id="counter"></p> 
-    <div id="noter">The number appearing when scrolling is key to the maths, well method and apologies 
-        for the new tab but this is not a real page to use in the longer term.</div>
+<p></p>    
 </body>
 <script>
-    let bb=document.querySelectorAll('.hangnavinner button')   
+    let bb=document.querySelectorAll('.hangnavinner button')
     let bbl=bb.length;
     let sl=document.querySelector('#leftb button')
     let sr=document.querySelector('#rightb button')
@@ -64,20 +60,9 @@
     }
     //just in case I affect this global variable I use a copy of it
     let scrollpos=scrollpo;
-    function scrollclosexact(){ 
-         let pinter=document.querySelector('#counter")
-        if(scrollpos>3){      
-        for(let x=scrollpos-3; x<scrollpos; x++){
-            bb[x].style="display:none;"
-        }       
-        for(let x=scrollpos-6;x<scrollpos-3;x++){
-            bb[x].style="display:flex";
-        }  
-        scrollpos-=3    
-       pinter.innerHTML=scrollpos;    
-        }}
-        function scrolll(){   
-            if(scrollpos<=3){
+    //Left set first. These choices for the scroll are insanely difficult
+    function scrolll(){   
+        if(scrollpos<=3){
             return
         }else{         
             if(bbl%3!==0){
@@ -85,11 +70,12 @@
                 scrolllclosemiss()
                 }else{
                 scrolllclosexact()
-                }}
+                }
             }
         }
-    function scrolllclosemiss(){      
-         let pinter=document.querySelector('#counter")
+    }
+    /*This is to enable the array to work. It needs to increment by 3 but not always be divisible by 3 */       
+    function scrolllclosemiss(){        
         for(let x=bbl-1; x>bbl-2-(scrollpos-bbl); x--){
             bb[x].style="display:none;"
         }       
@@ -97,10 +83,10 @@
             bb[x].style="display:flex";
         }  
         scrollpos-=3    
-       pinter.innerHTML=scrollpos;    
-    }    
-    function scrolllclosexact(){       
-         let pinter=document.querySelector('#counter")
+        document.querySelector('p').innerHTML=scrollpos;    
+    } 
+    /*I use scrollpos as the increment and do not alter it just to suit a different array length but the other way around, I make the function alter when the array is divisible by a similar increment. */  
+    function scrolllclosexact(){        
         for(let x=scrollpos-3; x<scrollpos; x++){
             bb[x].style="display:none;"
         }       
@@ -108,21 +94,9 @@
             bb[x].style="display:flex";
         }  
         scrollpos-=3    
-       pinter.innerHTML=scrollpos;    
-    }   
-   function goingupwrong(){    
-        for(let x= scrollpos -3; x<scrollpos; x++){
-            bb[x].style="display:none;"
-        }
-        for(let x=scrollpos; x<bbl; x++){
-            bb[x].style="display:flex;"
-        }notes()
-       
-   }
-   function notes(){
-     scrollpos+=3;        
-        pinterest.innerHTML=scrollpos
-   }
+        document.querySelector('p').innerHTML=scrollpos;    
+    }
+    /*The insanely difficult work around non divisible menu scroll sections for up scroll*/
     function scrollr(){   
         if (scrollpos>=bbl-2 ){            
         if( bbl%3!==0){
@@ -130,11 +104,19 @@
         } }
         else{
         scrollrcorrect()
+        }       
+    }   
+   function goingupwrong(){    
+        for(let x= scrollpos -3; x<scrollpos; x++){
+            bb[x].style="display:none;"
         }
-       
-    }
+        for(let x=scrollpos; x<bbl; x++){
+            bb[x].style="display:flex;"
+        } 
+        scrollpos+=3;        
+        document.querySelector('p').innerHTML=scrollpos       
+   }  
     function scrollrcorrect(){
-         let pinter=document.querySelector('#counter")
          if(scrollpos>=bbl){
             return
         } else{         
@@ -143,12 +125,10 @@
         }
         for(let x=scrollpos; x<scrollpos+3; x++){
             bb[x].style="display:flex;"
-        }
-        
+        }        
         scrollpos+=3;        
-       pinter.innerHTML=scrollpos;
+        document.querySelector('p').innerHTML=scrollpos;
         }
-    }
-  
+    }  
 </script>
 </html>
