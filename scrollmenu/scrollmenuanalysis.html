@@ -102,14 +102,18 @@ that is why it was made but the immediate aim aside it is put here as a referenc
         document.querySelector('p').innerHTML=scrollpos;    
     }
     /*The insanely difficult work around non divisible menu scroll sections for up scroll*/
-    function scrollr(){   
-        if (scrollpos>=bbl-2 ){            
-        if( bbl%3!==0){
-            goingupwrong()
-        } }
-        else{
-        scrollrcorrect()
-        }       
+    function scrollr(){
+        if(scrollpos>bbl){
+            return
+        }else{
+            if (scrollpos>=bbl-2 ){            
+                if( bbl%3!==0){
+                    goingupwrong()
+                } 
+            }else{
+                scrollrcorrect()
+            }  
+        }
     }   
    function goingupwrong(){    
         for(let x= scrollpos -3; x<scrollpos; x++){
