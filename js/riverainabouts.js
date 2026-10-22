@@ -9,7 +9,8 @@ let answers =[['abouts',
    ['horncliffesteading',
    'I called the stables a steading in another photo, dramatic to me as it was evening an the timber frame made good lines. The sunset is usually very visible here due to the Tweed valley catching it by the gap it creates on the other side and enhancing skylines. Anyhow, much more than a steading really, a mansion. '],
    ['oldchainbridge',
-   'Very photographed and interesting for the wandering line of the branch tracing the line of the bridge, how does it look so long? Recently revamped, after this photo in fact so at least 5 years old and quite dramatic chasing the pack of good photos far off for this feature would not be chosen but still artistic pleasure from the flow into each other. '],
+   'Very photographed and interesting for the wandering line of the branch tracing the line of the bridge\
+    , how does it look so long? Recently revamped, before this photo in fact so less than 5 years old and quite dramatic chasing the pack of good photos far off for this feature would not be chosen but still artistic pleasure from the flow into each other. '],
    ['tweedvalley',
    'Very local again and chosen for the multiple natural elements standing out by their respective colours around the wide River Tweed being set off by the organised space of grazing for horses. With rural land management things still look natural even across large fields earmarked for our use.'] 
  ];
